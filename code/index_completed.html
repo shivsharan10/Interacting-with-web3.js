@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="author" content="Kenneth Hu">
+	<meta name="author" content="Shivsharan Patil">
     <title>Web3js</title>
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -23,16 +23,18 @@
 		<hr>
 
         <label for="name" class="col-lg-2 control-label"><h3>Balance</h3></label>
-		<p>Account : <input id="Account" type="text"> </p>
-        <p>Balance : <input id="Balance" type="text"></p>
-		 <button id="checkBalance">Check Balance</button>
+		<p>Account : <input id="Account" type="text" placeholder="0x......"> </p>
+		<button class="button-54" id="checkBalance">Check Balance</button>
+		<p>Balance : <input id="Balance" type="text"></p>
+		
+		 
 
 		<hr>
 		<label for="name" class="col-lg-2 control-label"><h3>Transfer</h3></label>
 		<p>From : &nbsp &nbsp &nbsp <input id="From" type="text"> </p>
 		<p>To : &nbsp &nbsp &nbsp &nbsp &nbsp <input id="To" type="text"> </p>
         <p>Amount : &nbsp <input id="Amount" type="text"></p>
-        <button id="Transfer">Transfer</button>
+        <button class="button-54" id="Transfer">Transfer</button>
         <p>Transaction Hash : &nbsp  <span id="Tx"></span></p>
 
     </div>
@@ -40,17 +42,16 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 
     <script>
-    
 		$( document ).ready(function() {
 			console.log( "ready!" );
 			
 			if (typeof web3 !== 'undefined') {
-				web3 = new Web3(web3.currentProvider);
+				web3 = new Web3(web3.HDWalletProvider);
 			} else {
 					// set the provider you want from Web3.providers
-				web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+				web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/18e1be4f10e54db293166be67f10a59f"));
 			}
-			web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+			web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/18e1be4f10e54db293166be67f10a59f"));
 			/* Get Node Info */
 			web3.eth.getNodeInfo(function(error, result){
 				if(error){
