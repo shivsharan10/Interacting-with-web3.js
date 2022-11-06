@@ -1,8 +1,16 @@
 {
+  "homepage": "https://shivsharan10.github.io/Interacting-with-web3.js",
   "dependencies": {
-    "web3": "^1.8.0",
     "@truffle/hdwallet-provider": "2.1.1",
-    "ethers":"5.7.2",
-    "dotenv": "^8.2.0"
-  }
+    "dotenv": "^8.2.0",
+    "ethers": "5.7.2",
+    "web3": "^1.8.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+}
 }
